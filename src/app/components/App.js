@@ -11,7 +11,7 @@ const routes = [{
   path: '/',
   component: Layout,
   indexRoute: { component: Landing },
-  childRoutes:[]
+  childRoutes: []
   /*
   childRoutes: [
     {
@@ -40,8 +40,7 @@ class App extends React.Component {
   render () {
     return (
       <Provider store={store}>
-        <Router history={history} routes={routes}>
-        </Router>
+        <Router history={history} routes={routes} />
       </Provider>)
   }
 }

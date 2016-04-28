@@ -9,9 +9,9 @@ const middlewares = [
 const enhancer = compose(
   applyMiddleware(...middlewares),
   window.devToolsExtension ? window.devToolsExtension() : f => f
-);
+)
 
-let store; //singleton
+let store  // singleton
 
 export default function configureStore(history, initialState) {
   store = createStore(reducers, initialState, enhancer );

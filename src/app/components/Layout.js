@@ -1,22 +1,22 @@
 import React from 'react'
 
 const Layout = (props) => {
-  const {route} = props
   const path = props.location.pathname.replace('/', '-', 'g')
 
   return (
     <div className={`main-wrapper route` + path}>
-      <div className="main-container">
+      <div className='main-container'>
         {props.children}
       </div>
     </div>
   )
-};
+}
 
-const { element } = React.PropTypes
+const { element, object } = React.PropTypes
 
 Layout.propTypes = {
+  location: object,
   children: element.isRequired
 }
 
-export default Layout;
+export default Layout

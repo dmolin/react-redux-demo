@@ -1,7 +1,7 @@
 import React from 'react'
 import {bindActionCreators} from 'redux'
 import {connect} from 'react-redux'
-import Restaurants from '../components/Restaurants'
+import {Restaurants} from '../components/Restaurants'
 
 function mapStateToProps(state) {
   return {

@@ -3,7 +3,7 @@ import Search from '../containers/Search'
 import Restaurants from '../containers/Restaurants'
 
 class Landing extends React.Component {
-  render() {
+  render () {
     return (
       <div>
         <Search />

@@ -12,9 +12,8 @@ class Search extends React.Component {
   render () {
     return (
       <section className="search">
-        <form>
-          <input type="text" data-id="search-postcode" ref="postcode" placeholder="postcode?" />
-          <br />
+        <form className="search-form">
+          <input type="text" ref="postcode" placeholder="postcode?" />
           <button type="submit" onClick={this.handleSearch}>Search</button>
         </form>
       </section>
