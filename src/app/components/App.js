@@ -2,7 +2,7 @@ const React = require('react')
 const { Router, browserHistory } = require('react-router')
 const { Provider } = require('react-redux')
 
-import Layout from './Layout'
+import Layout from './layouts/Layout'
 import Landing from './Landing'
 import configureStore from '../store'
 import {syncHistoryWithStore} from 'react-router-redux'

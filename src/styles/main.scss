@@ -1,4 +1,6 @@
 @import '_reset';
 @import '_variables';
+@import '_common';
 
-@import '../app/components/Search/Search';
+@import '_header';
+@import '_search';
