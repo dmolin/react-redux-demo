@@ -7,7 +7,7 @@
   "scripts": {
     "deploy": "rm -r -f dist && mkdir dist && ./node_modules/.bin/webpack --optimize-minimize && npm run copy-assets",
     "prebuild": "rm -r -f dist && mkdir dist",
-    "build": "npm run test && npm run build:dev",
+    "build": "npm run build:dev",
     "build:prod": "webpack --verbose --colors --display-error-details --config webpack/webpack.prod.config.js && npm run copy-favicons",
     "build:dev": "npm run test && DEV=true node ./server/server.js",
     "build:dev:no-test": "DEV=true node ./server/server.js",
@@ -67,12 +67,15 @@
     "style-loader": "^0.13.1",
     "url-loader": "^0.5.7",
     "webpack": "^1.12.13",
+    "webpack-dev-middleware": "^1.6.1",
     "webpack-dev-server": "^1.14.1",
+    "webpack-hot-middleware": "^2.10.0",
     "whatwg-fetch": "^0.11.0"
   },
   "dependencies": {
     "axios": "^0.9.1",
     "express": "4.13.4",
+    "http-proxy": "^1.13.2",
     "lodash": "4.6.1",
     "node-ensure": "0.0.0",
     "query-string": "^4.1.0",

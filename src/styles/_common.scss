@@ -1,4 +1,50 @@
+html, body {
+  height: 100%;
+  font-size: 14px;
+}
+
 .centered-panel {
   max-width: 960px;
   margin: 0 auto;
+}
+
+.backdrop {
+  background-position: center;
+  background-size: cover;
+}
+
+.backdrop--people {
+  background-image: url("http://dy3erx8o0a6nh.cloudfront.net/images/je_cover.jpg");
+}
+
+.cta {
+  font-family: serif;
+  font-size: 4.2em;
+  text-align: center;
+}
+
+.cta--light {
+  color: #fff;
+}
+
+small {
+  font-size: 1rem;
+}
+
+.centered {
+  text-align: center;
+}
+
+//as a general rule, placeholders don't get transformed
+::-webkit-input-placeholder {
+  text-transform: initial;
+}
+:-moz-placeholder {
+  text-transform: initial;
+}
+::-moz-placeholder {
+  text-transform: initial;
+}
+:-ms-input-placeholder {
+  text-transform: initial;
 }

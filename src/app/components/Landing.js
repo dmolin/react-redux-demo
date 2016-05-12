@@ -7,9 +7,16 @@ class Landing extends React.Component {
   render () {
     return (
       <div>
-        <Header />
-        <Search />
-        <Restaurants />
+        <div className="landing-backdrop backdrop backdrop--people">
+          <section className="centered-panel">
+            <Header />
+            <div className="landing-cta cta cta--light">
+              <p>Order takeaway online</p>
+              <small className="landing-cta-sub">Choose from over 20,000 takeaways</small>
+              <Search />
+            </div>
+          </section>
+        </div>  
       </div>
     )
   }

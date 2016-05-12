@@ -4,6 +4,8 @@ const { Provider } = require('react-redux')
 
 import Layout from './layouts/Layout'
 import Landing from './Landing'
+import SearchResults from '../containers/SearchResults'
+
 import configureStore from '../store'
 import {syncHistoryWithStore} from 'react-router-redux'
 
@@ -11,7 +13,17 @@ const routes = [{
   path: '/',
   component: Layout,
   indexRoute: { component: Landing },
-  childRoutes: []
+  childRoutes: [
+    {
+      path: 'area/:postcode',
+      getComponent (location, cb) {
+        console.log("sub route")
+        require.ensure([], () => {
+          cb(null, SearchResults)
+        })
+      }
+    }
+  ]
   /*
   childRoutes: [
     {
@@ -36,7 +48,7 @@ const routes = [{
 const store = configureStore()
 const history = syncHistoryWithStore(browserHistory, store)
 
-class App extends React.Component {
+class  App extends React.Component {
   render () {
     return (
       <Provider store={store}>

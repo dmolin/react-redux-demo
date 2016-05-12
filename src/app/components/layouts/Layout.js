@@ -5,7 +5,7 @@ const Layout = (props) => {
 
   return (
     <div className={`main-wrapper route` + path}>
-      <div className='main-container centered-panel'>
+      <div className='main-container'>
         {props.children}
       </div>
     </div>

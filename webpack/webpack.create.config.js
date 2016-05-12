@@ -9,15 +9,13 @@ module.exports = function(options) {
   //
   // Setup environment specific settings
   //
-  var envEntry = ['./src/app/bootstrap.js'];
+  var envEntry = [path.join(__dirname, '../src/app/bootstrap.js')];
   var envPlugins = [];
 
   if (options.devServer) {
-    envEntry = [
-      'webpack-dev-server/client?http://' + options.host + ':' + options.port,
-      'webpack/hot/only-dev-server'
+    envEntry: [
+      'webpack-hot-middleware/client?reload=true',
     ].concat(envEntry);
-
     envPlugins = [new webpack.HotModuleReplacementPlugin()]
   }
 
@@ -41,7 +39,9 @@ module.exports = function(options) {
     devtool: options.devServer ? 'inline-source-map' : 'source-map',
     entry: envEntry,
     output: {
-      path: path.join(__dirname, options.outputDir),
+      //path: path.join(__dirname, options.outputDir),
+      path: path.join(__dirname, '../'),
+      publicPath: '/',
       filename: '[hash].bundle.js'
     },
     resolve: {
@@ -85,7 +85,7 @@ module.exports = function(options) {
           exclude: /node_modules/,
           include: path.join(__dirname, 'img')
         }
-      ],
+      ]
     },
     plugins: [
       new webpack.ProvidePlugin({
@@ -102,10 +102,16 @@ module.exports = function(options) {
         title: options.devServer ? 'DEV - React Example' : 'React Example',
         template: 'src/index.tpl.html',
         inject: true,
-        filename: 'index.html',
-        favicon: 'public/img/favicons/favicon.ico'
+        filename: 'index.html'
+        //favicon: 'public/img/favicons/favicon.ico'
       }),
+      new webpack.HotModuleReplacementPlugin(),
       new ExtractTextPlugin('[hash].css')].concat(envPlugins),
+    //   new ExtractTextPlugin('styles.css', {
+    //     publicPath: '/',
+    //     allChunks: true
+    //   })
+    // ].concat(envPlugins),
     postcss: [
       autoprefixer({browsers: ['> 1%']})
     ]
