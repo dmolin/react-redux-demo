@@ -14,14 +14,13 @@ module.exports = function(options) {
 
   if (options.devServer) {
     envEntry = [
-      //'webpack-hot-middleware/client?reload=true',
-      'webpack-hot-middleware/client',
+      'webpack-hot-middleware/client?reload=true',
     ].concat(envEntry);
     envPlugins = [new webpack.HotModuleReplacementPlugin()]
   }
 
   if (options.compress) {
-    envPlugins = [
+    envPlugins = envPlugins.concat([
       new webpack.IgnorePlugin(/\.\/dev/, /\/config$/),
       new webpack.optimize.DedupePlugin(),
       new webpack.optimize.OccurenceOrderPlugin(),
@@ -31,7 +30,7 @@ module.exports = function(options) {
           warnings: false
         }
       })
-    ]
+    ])
   }
 
   return {
@@ -95,7 +94,7 @@ module.exports = function(options) {
       }),
       new webpack.DefinePlugin({
         "process.env": {
-          NODE_ENV: process.env.REACT_DEBUG ? JSON.stringify("development") : JSON.stringify("production")
+          NODE_ENV: options.devServer ? JSON.stringify("development") : JSON.stringify("production")
         },
         __DEV__: JSON.stringify(JSON.parse(process.env.DEV || false)),
         __MOCK__: JSON.stringify(JSON.parse(process.env.MOCK || false))
@@ -107,14 +106,9 @@ module.exports = function(options) {
         filename: 'index.html'
         //favicon: 'public/img/favicons/favicon.ico'
       }),
-      //new webpack.HotModuleReplacementPlugin(),
       new webpack.NoErrorsPlugin(),
-      new ExtractTextPlugin('[hash].css')].concat(envPlugins),
-    //   new ExtractTextPlugin('styles.css', {
-    //     publicPath: '/',
-    //     allChunks: true
-    //   })
-    // ].concat(envPlugins),
+      new ExtractTextPlugin('[hash].css')
+    ].concat(envPlugins),
     postcss: [
       autoprefixer({browsers: ['> 1%']})
     ]

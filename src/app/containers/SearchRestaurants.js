@@ -6,16 +6,21 @@ import search from '../actions/restaurants/thunk_search'
 
 class SearchRestaurants extends React.Component {
   componentDidMount() {
-    console.log("mounted", this.props)
     //fetch data from server, dispatching an action
     this.props.search(this.props.params.postcode)
   }
 
   loadingOrResults() {
-    const {restaurants, searchTerm} = this.props
+    const {restaurants, searchTerm, loading} = this.props
+
+    console.log(restaurants, searchTerm, loading)
+
     return restaurants ?
-      <Restaurants searchTerm={searchTerm} restaurants={restaurants} /> :
-      <span>Loading...</span>
+      <Restaurants restaurants={restaurants} /> :
+      loading ?
+        <span>Loading...</span> :
+      searchTerm ?
+        <span>No Results</span> : <span />
   }
 
   render() {
@@ -30,6 +35,7 @@ class SearchRestaurants extends React.Component {
 
 function mapStateToProps(state) {
   return {
+    loading: state.restaurants.loading,
     searchTerm: state.restaurants.postcode,
     restaurants: state.restaurants.results
   }

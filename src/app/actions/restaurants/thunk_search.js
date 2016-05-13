@@ -1,24 +1,29 @@
 import api from '../../middleware/restaurantApi'
-import searchResultsAction from './searchResults'
+import searchResults from './searchResults'
+import searchStarted from './searchStarted'
 import flashMessage from '../flashMessage'
 
 export default function search(term) {
   return (dispatch, getState) => {
     if(!term || !term.length) {
-      dispatch(searchResultsAction({postcode:'', results:[]}))
+      dispatch(searchResults({postcode:'', results:[]}))
       return
     }
 
-    //since we're starting a new search, let's ensure the current list is emptied first
-    //dispatch(searchResultsAction({postcode:term, results:[]}))
+    //start the search action processing
+    dispatch(searchStarted(term))
 
-    //call the server
-    api.get(`?q=${term}`)
-      .then((response) => {
-        dispatch(searchResultsAction({postcode:term, results:response.data.Restaurants}))
-      })
-      .catch((error) => {
-        dispatch(flashMessage("Error retrieving restaurant list. Please try again"))
-      })
+    //make it slower...
+    setTimeout(() => {
+      //call the server
+      api.get(`?q=${term}`)
+        .then((response) => {
+          dispatch(searchResults({postcode:term, results:response.data.Restaurants}))
+        })
+        .catch((error) => {
+          dispatch(flashMessage("Error retrieving restaurant list. Please try again"))
+        })
+
+    }, 2000)
   }
 }
