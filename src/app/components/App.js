@@ -2,48 +2,10 @@ const React = require('react')
 const { Router, browserHistory } = require('react-router')
 const { Provider } = require('react-redux')
 
-import Layout from './layouts/Layout'
-import Landing from './Landing'
-import SearchRestaurants from '../containers/SearchRestaurants'
+import routes from '../routes'
 
 import configureStore from '../store'
 import {syncHistoryWithStore} from 'react-router-redux'
-
-const routes = [{
-  path: '/',
-  component: Layout,
-  indexRoute: { component: Landing },
-  childRoutes: [
-    {
-      path: 'area/:postcode',
-      getComponent (location, cb) {
-        console.log("sub route")
-        require.ensure([], () => {
-          cb(null, SearchRestaurants)
-        })
-      }
-    }
-  ]
-  /*
-  childRoutes: [
-    {
-      path: 'search',
-      getComponent (location, cb) {
-        require.ensure([], () => {
-          cb(null, require('./Search'))
-      })
-      }
-    },
-    {
-      path: 'details/:id',
-      getComponent (location, cb) {
-        require.ensure([], () => {
-          cb(null, require('./Details'))
-      })
-      }
-    }
-  ]*/
-}]
 
 const store = configureStore()
 const history = syncHistoryWithStore(browserHistory, store)

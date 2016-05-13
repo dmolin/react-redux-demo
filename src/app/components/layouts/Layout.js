@@ -1,8 +1,9 @@
 import React from 'react'
 
 const Layout = (props) => {
-  const path = props.location.pathname === '/' ? '-root' : props.location.pathname.replace('/', '-', 'g')
-
+  let path = props.location.pathname === '/' ? '-root' : props.location.pathname.replace('/', '-')
+  let checkSlash = path.match(/(.*)\//)
+  path = checkSlash && checkSlash.length === 2 ? checkSlash[1] : path
   return (
     <div className={`main-wrapper route` + path}>
       <div className='main-container'>

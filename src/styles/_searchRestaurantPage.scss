@@ -1,0 +1,16 @@
+.search-restaurants.loading-true {
+  background-color: #fff;
+}
+
+.restaurant-results-wrapper {
+  padding: 1em 0;
+}
+
+.restaurant-results {
+    padding: $padding 0;
+  }
+  @media screen and (min-width: 960px) {
+    .restaurant-results {
+      margin-left: 210px;
+    }
+  }

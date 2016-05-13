@@ -3,6 +3,14 @@ html, body {
   font-size: 14px;
 }
 
+a, a:visited {
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
 .centered-panel {
   max-width: 960px;
   margin: 0 auto;
@@ -35,6 +43,18 @@ small {
   text-align: center;
 }
 
+.important {
+  font-weight: bold;
+}
+
+.padded-e {
+  padding-right: 1em;
+}
+.padded-ew {
+  padding-left: 1em;
+  padding-right: 1em;
+}
+
 //as a general rule, placeholders don't get transformed
 ::-webkit-input-placeholder {
   text-transform: initial;
@@ -47,4 +67,9 @@ small {
 }
 :-ms-input-placeholder {
   text-transform: initial;
+}
+
+
+.route-area {
+  background-color: #f8f8f8;
 }

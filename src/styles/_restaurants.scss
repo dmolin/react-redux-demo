@@ -1,0 +1,44 @@
+.restaurants {
+}
+
+.restaurant {
+  background-color: #fff;
+  padding: $padding $padding-m;
+  margin-bottom: 3px;
+  position: relative;
+  overflow: hidden;
+}
+
+.restaurant-logo {
+  float: left;
+  width: 75px;
+  margin-right: 20px;
+
+  img {
+    width: 100%;
+  }
+}
+
+.restaurant-info {
+  color: #333;
+  margin-left: 95px;
+  line-height: 1.2em;
+
+  h2 {
+    font-size: 1.1em;
+    padding-bottom: 0.3em;
+  }
+
+  & * {
+    font-size: 0.9em;
+  }
+}
+
+.restaurant--sponsored {
+  display: inline-block;
+  font-size: 0.8em;
+  color: #666;
+  background-color: #eee;
+  padding: 0.4em;
+  border-radius: 3px;
+}

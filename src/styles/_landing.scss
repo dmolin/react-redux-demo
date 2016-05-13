@@ -4,8 +4,13 @@
 
 .landing-cta {
   margin: 3em 0 1em;
+
+  p {
+    font-family: $secondaryFont;
+  }
 }
 
+
 .landing-cta-sub {
-  font-family: Arial, sans-serif;
+
 }
