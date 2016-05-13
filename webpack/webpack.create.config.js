@@ -13,8 +13,9 @@ module.exports = function(options) {
   var envPlugins = [];
 
   if (options.devServer) {
-    envEntry: [
-      'webpack-hot-middleware/client?reload=true',
+    envEntry = [
+      //'webpack-hot-middleware/client?reload=true',
+      'webpack-hot-middleware/client',
     ].concat(envEntry);
     envPlugins = [new webpack.HotModuleReplacementPlugin()]
   }
@@ -56,7 +57,8 @@ module.exports = function(options) {
       loaders: [{
         test: /(\.js|\.jsx?)$/,
         exclude: /node_modules/,
-        loaders: options.devServer ? ['react-hot', 'babel'] : ['babel'],
+        //loaders: options.devServer ? ['react-hot', 'babel'] : ['babel'],
+        loaders: ['babel']
       },
         /*
         {
@@ -105,7 +107,8 @@ module.exports = function(options) {
         filename: 'index.html'
         //favicon: 'public/img/favicons/favicon.ico'
       }),
-      new webpack.HotModuleReplacementPlugin(),
+      //new webpack.HotModuleReplacementPlugin(),
+      new webpack.NoErrorsPlugin(),
       new ExtractTextPlugin('[hash].css')].concat(envPlugins),
     //   new ExtractTextPlugin('styles.css', {
     //     publicPath: '/',

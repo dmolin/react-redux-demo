@@ -4,7 +4,7 @@ import {connect} from 'react-redux'
 import {Restaurants} from '../components/Restaurants'
 import search from '../actions/restaurants/thunk_search'
 
-class SearchResults extends React.Component {
+class SearchRestaurants extends React.Component {
   componentDidMount() {
     console.log("mounted", this.props)
     //fetch data from server, dispatching an action
@@ -41,4 +41,4 @@ function mapDispatchToProps(dispatch) {
   }, dispatch)
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(SearchResults)
+export default connect(mapStateToProps, mapDispatchToProps)(SearchRestaurants)

@@ -14,10 +14,12 @@ class Search extends React.Component {
     browserHistory.push('/area/' + encodeURIComponent(this.refs.postcode.value))
   }
   render () {
+    const {searchTerm} = this.props
     return (
       <section className="search">
         <form className="search-form">
-          <input type="text" className="search-form-input" ref="postcode" placeholder="Enter postcode" />
+          <input type="text" className="search-form-input"
+                 ref="postcode" placeholder="Enter postcode" defaultValue={searchTerm} />
           <button type="submit"
                   className="search-form-button"
                   onClick={this.handleSearch}>Find takeaways</button>

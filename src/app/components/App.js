@@ -4,7 +4,7 @@ const { Provider } = require('react-redux')
 
 import Layout from './layouts/Layout'
 import Landing from './Landing'
-import SearchResults from '../containers/SearchResults'
+import SearchRestaurants from '../containers/SearchRestaurants'
 
 import configureStore from '../store'
 import {syncHistoryWithStore} from 'react-router-redux'
@@ -19,7 +19,7 @@ const routes = [{
       getComponent (location, cb) {
         console.log("sub route")
         require.ensure([], () => {
-          cb(null, SearchResults)
+          cb(null, SearchRestaurants)
         })
       }
     }

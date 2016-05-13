@@ -22,7 +22,7 @@ if (isDevelopment) {
     publicPath: config.output.publicPath,
     //contentBase: 'src',
     historyApiFallback: true,
-    //noInfo: true,
+    noInfo: true,
     headers: {'Access-Control-Allow-Origin': '*'},
     stats: {
       colors: true,

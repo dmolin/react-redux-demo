@@ -5,7 +5,9 @@ import Search from '../components/Search'
 import search from '../actions/restaurants/thunk_search'
 
 function mapStateToProps(state) {
-  return {}
+  return {
+    searchTerm: state.restaurants.postcode
+  }
 }
 
 function mapDispatchToProps(dispatch) {

@@ -9,6 +9,9 @@ export default function search(term) {
       return
     }
 
+    //since we're starting a new search, let's ensure the current list is emptied first
+    //dispatch(searchResultsAction({postcode:term, results:[]}))
+
     //call the server
     api.get(`?q=${term}`)
       .then((response) => {
