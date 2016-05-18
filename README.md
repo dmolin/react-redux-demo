@@ -1,12 +1,11 @@
-React-Redux demo application
+Tech Demo: Example of Replicating Just-Eat interface with React+Redux
 ==========================================================================
 
-Super simplified project, used as a template for a typical React+Redux+Webpack application
-
-No fancy UI at the moment (just a bare search box and a result list), since the focus is on the code structure and overall application architecture.
+This project is a demo project part of the **Attack of the Clones** series, where I demonstrate how to replicate some of the current widely used apps on the market using specific technologies (React and Redux in this case)
 
 The project is setup with Webpack and a development server with Hotreload and feature a typical scenario, with a page allowing to search for data.
-The current code implement a postcode lookup for restaurants, using the Just-Eat public API endpoints.
+
+The current code implement a super basic postcode lookup for restaurants, using the Just-Eat public API endpoints.
 
 ### Technologies Used ###
 
@@ -14,3 +13,11 @@ The current code implement a postcode lookup for restaurants, using the Just-Eat
 - Redux
 - BabelJS (ES2015 transpiler)
 - Webpack
+
+### Screenshots ###
+
+Postcode lookup screen.
+![ScreenShot](/README/je-postcode.png?raw=true)
+
+Restaurants result screen.
+![ScreenShot](/README/je-restaurants.png?raw=true)

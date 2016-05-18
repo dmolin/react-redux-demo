@@ -13,8 +13,6 @@
     "build:dev:no-test": "DEV=true node ./server/server.js",
     "test": "mocha --require test/setup.js",
     "lint": "standard",
-    "watch": "webpack --watch",
-    "start": "webpack-dev-server",
     "cover": "nyc --reporter=lcov --reporter=text --reporter=html --require babel-register --extension .js npm test"
   },
   "author": "davide@codingshack.com",
