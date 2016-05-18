@@ -2,7 +2,7 @@
   "name": "react-example-fetch",
   "private": true,
   "version": "0.0.0",
-  "description": "Simple React+Redux example with data loading from an external API endpoint",
+  "description": "AOTC: Replicating part of Just-Eat UI with React and Redux, using their public API endpoints",
   "main": "index.js",
   "scripts": {
     "deploy": "rm -r -f dist && mkdir dist && ./node_modules/.bin/webpack --optimize-minimize && npm run copy-assets",
